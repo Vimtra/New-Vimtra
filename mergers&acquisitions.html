@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimtra Ventures | Mergers & Acquisitions</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Shared Custom Styles */
+        :root {
+            --primary-red: #c00000;
+            --dark-grey: #343a40;
+            --mid-grey: #6c757d;
+            --light-grey: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--dark-grey);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            transition: all 0.3s ease-in-out;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand img {
+            max-height: 40px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: color 0.3s;
+            color: var(--dark-grey);
+            margin: 0 10px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-red);
+        }
+        
+        .navbar-toggler { border: none; }
+        .navbar-toggler:focus { box-shadow: none; }
+
+        .section { padding: 100px 0; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            font-size: 2.5rem;
+            position: relative;
+            color: var(--dark-grey);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        footer {
+            background-color: var(--dark-grey);
+            color: var(--light-grey);
+        }
+        
+        footer a {
+            color: var(--light-grey);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover { color: var(--primary-red); }
+        
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 12px;
+        }
+
+        /* Page-Specific Styles */
+        .page-hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/mergers&acquisitions.jpg') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page-hero-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--mid-grey);
+        }
+
+        /* M&A Process Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-red);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            z-index: 1;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container.left { left: 0; }
+        .timeline-container.right { left: 50%; }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-red);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-container.right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--light-grey);
+            position: relative;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-red);
+        }
+        
+        .timeline-content h3 {
+            font-weight: 600;
+            color: var(--primary-red);
+        }
+        
+        .timeline-content p {
+            color: var(--mid-grey);
+        }
+        
+        /* Responsive Timeline */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 20px;
+            }
+            .timeline-container {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+            .timeline-container.right {
+                left: 0%;
+            }
+            .timeline-container.left::after, .timeline-container.right::after {
+                left: 11px;
+            }
+        }
+        
+        /* Fade-in Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Vimtra Ventures Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Mergers & Acquisitions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="privateequity.html">Private Equity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="infrastructuredevelopment.html">Infrastructure Development</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teams.html">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero-section">
+        <div class="container">
+            <h1 class="display-3">Mergers & Acquisitions</h1>
+        </div>
+    </section>
+    
+    <!-- M&A Intro Section -->
+    <section class="section">
+        <div class="container text-center">
+             <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="intro-text">At Vimtra, we are actively expanding our portfolio by acquiring companies in key industries, including information technology services, product-based businesses, life sciences, pharmaceuticals, and healthcare solutions. Our expertise spans Asset Purchases, Stock Purchases, Mergers, and Reverse Mergers, facilitating seamless domestic and cross-border transactions. With a strategic and growth-driven approach, we ensure value creation and long-term success for all stakeholders involved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- M&A Process Timeline Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Our M&A Approach</h2>
+            <div class="timeline">
+                <div class="timeline-container left fade-in-section">
+                    <div class="timeline-content">
+                        <h3>Expert Guidance for Seamless Transactions</h3>
+                        <p>Our global team of seasoned professionals assists organizations across industries in evaluating strategic joint ventures and acquisitions. We provide comprehensive insights into potential candidates, assess associated costs and risks, and offer expert guidance on local customs and integration challenges.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right fade-in-section">
+                    <div class="timeline-content">
+                        <h3>Collaborating for Growth</h3>
+                        <p>We partner with firms in the financial, information technology, software, animation, healthcare, pharmaceuticals, infrastructure, and services sectors that seek sustainable growth. Our expertise lies in representing buyers within these industries, helping them expand their market presence.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left fade-in-section">
+                    <div class="timeline-content">
+                        <h3>Tailored Assistance for Strategic Exits</h3>
+                        <p>We support small and medium-sized business operators looking for strategic exits through mergers and acquisitions. Our unique market approach provides businesses with a diverse range of deal opportunities, maximizing value and ensuring optimal outcomes.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right fade-in-section">
+                    <div class="timeline-content">
+                        <h3>A Results-Driven Approach</h3>
+                        <p>Our process begins with a discreet engagement and a thorough feasibility assessment. We leverage our resources to close deals efficiently while identifying opportunities for future growth and expansion.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left fade-in-section">
+                    <div class="timeline-content">
+                        <h3>Ideal Acquisition Targets</h3>
+                        <p>We specialize in acquiring companies with $5 million to $150 million in revenue, located in North America, Asia, Australia, and the Middle East. Our focus industries include information technology, software, animation, healthcare, pharmaceuticals, infrastructure, and services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container text-center">
+            <h4 class="mb-3">Vimtra Ventures</h4>
+            <div class="social-icons mb-4">
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Vimtra Ventures. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fade-in animation for sections
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeSections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimtra Ventures | Our Team</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Shared Custom Styles */
+        :root {
+            --primary-red: #c00000;
+            --dark-grey: #343a40;
+            --mid-grey: #6c757d;
+            --light-grey: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--dark-grey);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            transition: all 0.3s ease-in-out;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand img {
+            max-height: 40px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: color 0.3s;
+            color: var(--dark-grey);
+            margin: 0 10px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-red);
+        }
+        
+        .navbar-toggler { border: none; }
+        .navbar-toggler:focus { box-shadow: none; }
+
+        .section { padding: 100px 0; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            font-size: 2.5rem;
+            position: relative;
+            color: var(--dark-grey);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        footer {
+            background-color: var(--dark-grey);
+            color: var(--light-grey);
+        }
+        
+        footer a {
+            color: var(--light-grey);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover { color: var(--primary-red); }
+        
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 12px;
+        }
+
+        /* Page-Specific Styles */
+        .page-hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/teams.jpg') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page-hero-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .team-member-section {
+            padding: 80px 0;
+        }
+        
+        .team-member-section:nth-child(even) {
+            background-color: var(--light-grey);
+        }
+
+        .team-member-img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+        
+        .team-member-content h2 {
+            font-weight: 700;
+            color: var(--dark-grey);
+        }
+        
+        .team-member-content .title {
+            font-weight: 500;
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .team-member-content p {
+            color: var(--mid-grey);
+            line-height: 1.8;
+        }
+        
+        /* Accordion Styles */
+        .accordion-item {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem !important;
+            margin-bottom: 1rem;
+        }
+        
+        .accordion-button {
+            font-weight: 600;
+            color: var(--dark-grey);
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: var(--light-grey);
+            color: var(--primary-red);
+            box-shadow: none;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+        
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c00000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+        
+        .accordion-body ul {
+            list-style-type: none;
+            padding-left: 0;
+            color: var(--mid-grey);
+        }
+        
+        .accordion-body ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        
+        .accordion-body ul li::before {
+            content: '\2022';
+            color: var(--primary-red);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1.5em;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Fade-in Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Vimtra Ventures Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mergers&acquisitions.html">Mergers & Acquisitions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="privateequity.html">Private Equity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="infrastructuredevelopment.html">Infrastructure Development</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero-section">
+        <div class="container">
+            <h1 class="display-3">Our Leadership</h1>
+        </div>
+    </section>
+    
+    <!-- Team Member 1: Subash Yammada -->
+    <section class="team-member-section fade-in-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 text-center">
+                    <img src="images/subash.jpg" alt="Subash Yammada" class="team-member-img">
+                </div>
+                <div class="col-lg-7 team-member-content">
+                    <h2>Subash Yammada</h2>
+                    <p class="title">CEO, Vimtra Ventures | Serial Entrepreneur | Investor | Mentor | Philanthropist</p>
+                    <hr class="my-4">
+                    <p>Mr. Subramaniyam V. Yammada, widely known as Subash Yammada, is a dynamic serial entrepreneur and the CEO of Vimtra Ventures, a diversified global enterprise. With over 29 years of leadership experience, he has cultivated an expansive portfolio across sports franchises, private equity, venture capital, real estate development, and technology investments.</p>
+                    
+                    <div class="accordion mt-4" id="accordionSubash">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Entrepreneurship & Investments
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionSubash">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Executed and owned 60+ successful global M&A transactions, creating significant enterprise value.</li>
+                                        <li>Founded, incubated, and scaled multiple technology startups, many of which have spun off into successful independent ventures.</li>
+                                        <li>Established a reputation for fostering innovation-driven businesses.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Real Estate Development
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSubash">
+                                <div class="accordion-body">
+                                    A visionary developer of luxury real estate and golf resort communities, Subash is spearheading large-scale projects across North America and India. Signature projects include the Lafayette Hills Golf Community in Syracuse, New York, and the Dalton @Noda 275 unit Mid rise Multi family apartment complex near Uptown Charlotte in North Carolina.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Leadership, Mentorship & Advisory
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionSubash">
+                                <div class="accordion-body">
+                                    Subash has served as a C-level executive and board advisor in multinational organizations across IT, infrastructure, banking, and real estate industries. As a mentor, he actively guides the next generation of entrepreneurs, sharing insights on innovation, resilience, and sustainable growth.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Member 2: Thimmaji Rao Yammada -->
+    <section class="team-member-section fade-in-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 order-lg-1 team-member-content">
+                    <h2>Thimmaji Rao Yammada</h2>
+                    <p class="title">Managing Director, Vimtra Ventures | Serial Entrepreneur | Mentor | Leader</p>
+                    <hr class="my-4">
+                    <p>Rao Yammada is the Managing Director of Vimtra Ventures, bringing over 30 years of leadership in infrastructure, real estate, and industrial development across North America and India.</p>
+                    <div class="accordion mt-4" id="accordionRao">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingRaoOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRaoOne" aria-expanded="false" aria-controls="collapseRaoOne">
+                                    Entrepreneurship & Investments
+                                </button>
+                            </h2>
+                            <div id="collapseRaoOne" class="accordion-collapse collapse" aria-labelledby="headingRaoOne" data-bs-parent="#accordionRao">
+                                <div class="accordion-body">
+                                    He has successfully executed joint ventures and large-scale projects valued from $8 million to $120 million, with expertise spanning asset restructuring and full-cycle real estate development—including commercial, residential, retail, and mixed-use assets. His work encompasses market research, feasibility studies, land premium negotiations, development planning, and joint venture agreements.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingRaoTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRaoTwo" aria-expanded="false" aria-controls="collapseRaoTwo">
+                                    Leadership, Mentorship & Advisory
+                                </button>
+                            </h2>
+                            <div id="collapseRaoTwo" class="accordion-collapse collapse" aria-labelledby="headingRaoTwo" data-bs-parent="#accordionRao">
+                                <div class="accordion-body">
+                                    He has advised on the restructuring and repositioning of diverse property types—ranging from industrial facilities, hotels, and residential communities to retail malls and mixed-use projects—across North America and Asia. In addition, he has supported secured and unsecured creditors, loan servicers, and acquirers in major debt restructurings.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 order-lg-2 text-center">
+                    <img src="images/rao.jpg" alt="Thimmaji Rao Yammada" class="team-member-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Member 3: Surya Kotha -->
+    <section class="team-member-section fade-in-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 text-center">
+                    <img src="images/surya.jpg" alt="Surya Kotha" class="team-member-img">
+                </div>
+                <div class="col-lg-7 team-member-content">
+                    <h2>Surya Kotha</h2>
+                    <p class="title">Technology Advisory</p>
+                    <hr class="my-4">
+                    <p>Surya heads up the technology advisory in Vimtra. With over 24 years of experience in the IT industry in a variety of senior management and leadership roles, Surya is actively involved with a number of start-ups as an investor, mentor, and advisor.</p>
+                    <p>He is well-known in the e-Commerce integration field and is regarded as a B2B ERP and e-Commerce expert. Surya's experience includes strategy consulting, product development, go-to-market strategies, business plan reviews, program management, channel relationship management, and IT services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container text-center">
+            <h4 class="mb-3">Vimtra Ventures</h4>
+            <div class="social-icons mb-4">
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Vimtra Ventures. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fade-in animation for sections
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeSections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>

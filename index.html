@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimtra Ventures | Home</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Custom Styles */
+        :root {
+            --primary-red: #c00000; /* A strong, professional red */
+            --dark-grey: #343a40;
+            --mid-grey: #6c757d;
+            --light-grey: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--dark-grey);
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+
+        .navbar {
+            transition: all 0.3s ease-in-out;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand img {
+            max-height: 40px; /* Adjust logo height */
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: color 0.3s;
+            color: var(--dark-grey);
+            margin: 0 10px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-red);
+        }
+        
+        .navbar-toggler {
+            border: none;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-boardroom.jpg') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 20px auto 40px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-red);
+            border-color: var(--primary-red);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #a00000;
+            border-color: #a00000;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            font-size: 2.5rem;
+            position: relative;
+            color: var(--dark-grey);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* UPDATED 3D Carousel Section Styles */
+        .topics-container {
+            display: flex;
+            height: 70vh; /* Set a fixed height for the container */
+            position: relative;
+        }
+
+        .topics-text-column {
+            flex: 1;
+            padding-right: 2rem;
+            position: relative; /* Container for absolute positioned text blocks */
+        }
+
+        .topic-text-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 75%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease-in-out, visibility 0.6s;
+            padding-right: 2rem;
+        }
+
+        .topic-text-content.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .topic-number {
+            position: absolute;
+            top: 50%;
+            left: -11rem; /* Pushes the number to the left */
+            transform: translateY(-50%);
+            font-size: 12rem;
+            font-weight: 700;
+            color: #e9ecef; /* Light grey, semi-transparent look */
+            z-index: 1;
+            line-height: 1;
+            user-select: none; /* Prevent text selection */
+        }
+        
+        .topic-text-content h3 {
+            font-weight: 700;
+            color: var(--dark-grey);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2; /* Ensure text is above the number */
+        }
+        
+        .topic-text-content p {
+            color: var(--mid-grey);
+            line-height: 1.8;
+            max-width: 500px;
+            position: relative;
+            z-index: 2; /* Ensure text is above the number */
+        }
+
+        .topics-carousel-column {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* Needed for the gradient overlay */
+        }
+
+        .topics-carousel-column::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            /* left: 0; */
+            right: -110px;
+            width: 920px;
+            height: 100%;
+            background: linear-gradient(to right, 
+                var(--white) 0%, 
+                rgba(255,255,255,0) 40%, 
+                rgba(255,255,255,0) 60%, 
+                var(--white) 100%
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .scene {
+            width: 480px; /* Made bigger */
+            height: 300px; /* Made bigger */
+            perspective: 1500px;
+        }
+
+        .carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .carousel-cell {
+            position: absolute;
+            width: 480px; /* Adjusted for border */
+            height: 300px; /* Adjusted for border */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 10px solid var(--white);
+            background-color: var(--white);
+            /* NEW: Add transition for transform and opacity */
+            transition: transform 1s, opacity 1s;
+        }
+
+        .carousel-cell img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px; /* Slight radius inside the border */
+        }
+
+        /* Mission & Vision Section Styles */
+        .mission-vision-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/mission-vision.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 20px;
+            padding: 80px 50px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .mission-vision-bg h2 {
+            font-weight: 700;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .mission-vision-bg h3 {
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mission-vision-bg h3::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background-color: var(--primary-red);
+            margin: 15px auto 0;
+        }
+
+        .mission-vision-bg p {
+            color: var(--light-grey);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .mission-vision-bg .subsidiary-text {
+            color: var(--mid-grey);
+        }
+
+        /* Scroll Animation Styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background-color: var(--dark-grey);
+            color: var(--light-grey);
+        }
+        
+        footer a {
+            color: var(--light-grey);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--primary-red);
+        }
+        
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/logo.png" alt="Vimtra Ventures Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mergers&acquisitions.html">Mergers & Acquisitions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="privateequity.html">Private Equity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="infrastructuredevelopment.html">Infrastructure Development</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teams.html">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-3">Strategic Investments. Unparalleled Growth.</h1>
+            <p class="lead">Vimtra Ventures is a premier advisory firm specializing in high-stakes corporate finance and strategic development.</p>
+            <a href="#topics" class="btn btn-primary btn-lg">Explore Our Expertise</a>
+        </div>
+    </section>
+    
+    <!-- 3D Carousel Topics Section -->
+    <section id="topics" class="section">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="topics-container">
+                <!-- Text Column -->
+                <div class="topics-text-column">
+                    <div class="topic-text-content active" data-index="0">
+                        <span class="topic-number">01</span>
+                        <h3>Venture Capital</h3>
+                        <p>We provide early-stage funding and strategic guidance to high-growth startups in technology, AI, healthcare, fintech, and other emerging industries. Our hands-on approach and deep industry insights help founders scale their businesses and achieve sustainable success.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="1">
+                        <span class="topic-number">02</span>
+                        <h3>Private Equity</h3>
+                        <p>We invest in established information technology products and services companies with strong growth potential, leveraging our expertise to optimize operations, enhance profitability, cross selling and create lasting value. Our focus spans multiple sectors, including life sciences, pharmaceuticals, Telecom and financial services.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="2">
+                        <span class="topic-number">03</span>
+                        <h3>Capital Placement</h3>
+                        <p>Vimtra provides operating capital, growth capital, and acquisition financing through private equity, senior, mezzanine, and junior debt.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="3">
+                        <span class="topic-number">04</span>
+                        <h3>Mergers & Acquisitions</h3>
+                        <p>Vimtra's team of entrepreneurs specializes in domestic and cross-border mergers, acquisitions, divestitures, company combinations, and public market takeovers. Going private transactions, special committee representations, and hostile and takeover defense advising services are among our specialties.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="4">
+                        <span class="topic-number">05</span>
+                        <h3>Startups</h3>
+                        <p>We invest in startups and serve as full-service incubators for their development. From Seed through Series to Convertible Notes, we participate in all stages of finance.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="5">
+                        <span class="topic-number">06</span>
+                        <h3>Business Restructuring</h3>
+                        <p>Businesses facing financial challenges turn to us for our disciplined approach to transactions and our swift implementation of innovative financing solutions. We quickly collaborate with management to fully understand the situation and the challenges faced by all parties involved.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="6">
+                        <span class="topic-number">07</span>
+                        <h3>Infrastructure Development</h3>
+                        <p>Vimtra has heavily invested in real estate, with over $450 million worth of projects under active development in high-growth targeted areas spanning golf communities, multifamily apartment complexes, Commercial and retail development. We currently hold a portfolio of 35+ properties in both the United States and India.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="7">
+                        <span class="topic-number">08</span>
+                        <h3>Information Technology Products and Services</h3>
+                        <p>Beyond real estate, Vimtra is a powerhouse in the technology sector. We own and operate over 30+ Information technology companies across the country, driving innovation and transformation across multiple industries. Our diverse holdings range from enterprise software solutions and artificial intelligence to cutting-edge fintech and digital platforms.</p>
+                    </div>
+                    <div class="topic-text-content" data-index="8">
+                        <span class="topic-number">09</span>
+                        <h3>Sports Franchises & Entertainment</h3>
+                        <p>Subash has a strong presence in professional sports and entertainment ventures, with a focus on creating long-term value through strategic partnerships and community engagement. His portfolio includes The Bays - Golf Lab & Suites, the Dallas Sidekicks, and the Arka Grand Golf Resort Community in Chennai.</p>
+                    </div>
+                </div>
+
+                <!-- 3D Carousel Column -->
+                <div class="topics-carousel-column">
+                    <div class="scene">
+                        <div class="carousel">
+                            <div class="carousel-cell"><img src="images/venture capital.jpeg" alt="Venture Capital"></div>
+                            <div class="carousel-cell"><img src="images/private equity.jpeg" alt="Private Equity"></div>
+                            <div class="carousel-cell"><img src="images/capital placement.jpeg" alt="Capital Placement"></div>
+                            <div class="carousel-cell"><img src="images/mergers & acquisitions.jpeg" alt="Mergers & Acquisitions"></div>
+                            <div class="carousel-cell"><img src="images/startups.jpeg" alt="Startups"></div>
+                            <div class="carousel-cell"><img src="images/Business Restructuring.jpeg" alt="Business Restructuring"></div>
+                            <div class="carousel-cell"><img src="images/Infrastructure development.jpg" alt="Infrastructure Development"></div>
+                            <div class="carousel-cell"><img src="images/Information Technology Products and Services.jpg" alt="Information Technology"></div>
+                            <div class="carousel-cell"><img src="images/Sports Franchises & Entertainment.jpg" alt="Sports & Entertainment"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission-vision" class="section">
+        <div class="container">
+            <div class="mission-vision-bg fade-in-section">
+                <h2>Vimtra Ventures</h2>
+                <h3>MISSION</h3>
+                <p>At Vimtra Ventures, our mission is to empower innovation, accelerate growth, and build lasting value through visionary investments across venture capital, private equity, real estate, and technology. We are committed to fostering strong partnerships, driving economic development, and transforming industries by backing bold ideas and delivering exceptional execution with integrity, insight, and impact.</p>
+                <h3>VISION</h3>
+                <p>To be a global leader in investment and development—reshaping industries, redefining urban landscapes, and driving the next wave of technological and economic progress. Through strategic foresight and unwavering excellence, we envision a future where Vimtra Ventures is synonymous with transformative impact, sustainable growth, and world-class innovation across every sector we serve.</p>
+                <p class="subsidiary-text mt-4"><em>A subsidiary of Urpan Technologies Inc.</em></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container text-center">
+            <h4 class="mb-3">Vimtra Ventures</h4>
+            <div class="social-icons mb-4">
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Vimtra Ventures. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fade-in animation for non-carousel sections
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeSections.forEach(section => fadeObserver.observe(section));
+
+            // 3D Carousel Logic
+            const topicsContainer = document.querySelector('.topics-container');
+            const carousel = document.querySelector('.carousel');
+            const cells = document.querySelectorAll('.carousel-cell');
+            const textContents = document.querySelectorAll('.topic-text-content');
+            const cellCount = cells.length;
+
+            if (!topicsContainer || cellCount === 0) return;
+
+            let selectedIndex = 0;
+            let isScrolling = false;
+            const theta = 360 / cellCount;
+            const radius = Math.round((460 / 2) / Math.tan(Math.PI / cellCount));
+
+            function updateCarousel() {
+                // Rotate the main carousel
+                const angle = theta * selectedIndex * -1;
+                carousel.style.transform = `translateZ(-${radius}px) rotateY(${angle}deg)`;
+
+                // Update text content visibility
+                textContents.forEach((content, i) => {
+                    content.classList.toggle('active', i === selectedIndex);
+                });
+
+                // ** NEW LOGIC FOR SCALING AND OPACITY **
+                // This logic applies the scale and opacity directly to the cells.
+                cells.forEach((cell, i) => {
+                    const rotationY = i * theta;
+                    let transform = `rotateY(${rotationY}deg) translateZ(${radius}px)`;
+                    
+                    if (i !== selectedIndex) {
+                        transform += ` scale(0.8)`; // Scale down non-active cells
+                        cell.style.opacity = '0.6';
+                    } else {
+                        transform += ` scale(1)`; // Ensure active cell is full size
+                        cell.style.opacity = '1';
+                    }
+                    cell.style.transform = transform;
+                });
+            }
+            
+            // Initial setup of carousel
+            updateCarousel();
+
+            // Listen for scroll events on the topics container
+            topicsContainer.addEventListener('wheel', (event) => {
+                if (isScrolling) return;
+
+                const isScrollingDown = event.deltaY > 0;
+                
+                if ((isScrollingDown && selectedIndex === cellCount - 1) || (!isScrollingDown && selectedIndex === 0)) {
+                    return;
+                }
+
+                event.preventDefault(); 
+
+                if (isScrollingDown) {
+                    selectedIndex++;
+                } else {
+                    selectedIndex--;
+                }
+                
+                updateCarousel();
+
+                isScrolling = true;
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 10); 
+            });
+        });
+    </script>
+</body>
+</html>
