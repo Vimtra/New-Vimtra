@@ -25,11 +25,13 @@
             --mid-grey: #6c757d;
             --light-grey: #f8f9fa;
             --white: #ffffff;
+            --silver: #cdd7d8;
+
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--white);
+            background-color: var(--silver); /* Light grey background */
             color: var(--dark-grey);
             overflow-x: hidden; /* Prevent horizontal scrollbar */
         }
@@ -40,7 +42,7 @@
         }
 
         .navbar-brand img {
-            max-height: 40px; /* Adjust logo height */
+            max-height: 60px; /* Adjust logo height */
         }
 
         .nav-link {
@@ -49,9 +51,13 @@
             color: var(--dark-grey);
             margin: 0 10px;
         }
-
-        .nav-link:hover, .nav-link.active {
+        .nav-link.active{
             color: var(--primary-red);
+        }
+        .nav-link:hover{
+            color: var(--primary-red);
+            box-shadow: 0 2px 0 var(--primary-red);
+            transition: box-shadow 0.5s ease-in-out;
         }
         
         .navbar-toggler {
@@ -124,17 +130,17 @@
             border-radius: 2px;
         }
         
-        /* UPDATED 3D Carousel Section Styles */
+        /* 3D Carousel Section Styles */
         .topics-container {
             display: flex;
-            height: 70vh; /* Set a fixed height for the container */
+            height: 70vh;
             position: relative;
         }
 
         .topics-text-column {
             flex: 1;
             padding-right: 2rem;
-            position: relative; /* Container for absolute positioned text blocks */
+            position: relative;
         }
 
         .topic-text-content {
@@ -160,14 +166,14 @@
         .topic-number {
             position: absolute;
             top: 50%;
-            left: -11rem; /* Pushes the number to the left */
+            left: -11rem;
             transform: translateY(-50%);
             font-size: 12rem;
             font-weight: 700;
-            color: #e9ecef; /* Light grey, semi-transparent look */
+            color: #e9ecef;
             z-index: 1;
             line-height: 1;
-            user-select: none; /* Prevent text selection */
+            user-select: none;
         }
         
         .topic-text-content h3 {
@@ -175,7 +181,7 @@
             color: var(--dark-grey);
             margin-bottom: 1rem;
             position: relative;
-            z-index: 2; /* Ensure text is above the number */
+            z-index: 2;
         }
         
         .topic-text-content p {
@@ -183,7 +189,7 @@
             line-height: 1.8;
             max-width: 500px;
             position: relative;
-            z-index: 2; /* Ensure text is above the number */
+            z-index: 2;
         }
 
         .topics-carousel-column {
@@ -191,30 +197,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative; /* Needed for the gradient overlay */
+            position: relative;
         }
 
         .topics-carousel-column::after {
             content: '';
             position: absolute;
             top: 0;
-            /* left: 0; */
             right: -110px;
             width: 920px;
             height: 100%;
             background: linear-gradient(to right, 
-                var(--white) 0%, 
-                rgba(255,255,255,0) 40%, 
+                var(--silver) 0%, 
+                rgba(151, 151, 151, 0) 40%, 
                 rgba(255,255,255,0) 60%, 
-                var(--white) 100%
+                var(--silver) 100%
             );
             pointer-events: none;
             z-index: 2;
         }
 
         .scene {
-            width: 480px; /* Made bigger */
-            height: 300px; /* Made bigger */
+            width: 480px;
+            height: 300px;
             perspective: 1500px;
         }
 
@@ -228,14 +233,13 @@
 
         .carousel-cell {
             position: absolute;
-            width: 480px; /* Adjusted for border */
-            height: 300px; /* Adjusted for border */
+            width: 480px;
+            height: 300px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             border: 10px solid var(--white);
             background-color: var(--white);
-            /* NEW: Add transition for transform and opacity */
             transition: transform 1s, opacity 1s;
         }
 
@@ -243,7 +247,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 5px; /* Slight radius inside the border */
+            border-radius: 5px;
         }
 
         /* Mission & Vision Section Styles */
@@ -294,7 +298,6 @@
             color: var(--mid-grey);
         }
 
-        /* Scroll Animation Styles */
         .fade-in-section {
             opacity: 0;
             transform: translateY(40px);
@@ -305,25 +308,173 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        .carousel-nav {
+            display: none; 
+        }
 
-        footer {
+        /* Responsive styles for mobile */
+        @media (max-width: 991.98px) {
+            .hero-section h1 { font-size: 2.5rem; }
+            .hero-section p { font-size: 1.1rem; }
+            
+            .topics-container {
+                flex-direction: column;
+                height: auto;
+            }
+            .topics-text-column {
+                order: 1;
+                padding-right: 0;
+                height: 25vh;
+                min-height: 180px;
+            }
+            .topics-carousel-column {
+                order: 2;
+                margin-top: 1rem;
+                position: relative; /* Needed for button positioning */
+            }
+            .topic-text-content {
+                position: absolute;
+                width: 100%;
+                opacity: 0;
+                visibility: hidden;
+                text-align: center;
+                padding-right: 0;
+            }
+            .topic-text-content.active {
+                opacity: 1;
+                visibility: visible;
+                display: flex;
+            }
+            .topic-number {
+                position: static;
+                transform: none;
+                font-size: 4rem;
+                color: #e0e0e0;
+                margin-bottom: -1rem;
+            }
+            .topics-carousel-column::after {
+                display: none;
+            }
+            .scene {
+                width: 100%;
+                max-width: 380px;
+                height: 240px;
+            }
+            .carousel-cell {
+                width: 100%;
+                height: 100%;
+            }
+            
+            /* THE FIX IS HERE: Button positioning */
+            .carousel-nav {
+                display: block; /* Show container on mobile */
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10px; /* Add some padding from the edges */
+                pointer-events: none; /* Allow clicks to pass through the container */
+                z-index: 10;
+            }
+            .carousel-nav-button {
+                background-color: rgba(0, 0, 0, 0.4);
+                color: var(--white);
+                border: none;
+                border-radius: 50%;
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+                line-height: 1;
+                transition: background-color 0.3s;
+                pointer-events: all; /* Make buttons clickable */
+            }
+            .carousel-nav-button:hover {
+                background-color: var(--primary-red);
+            }
+            .carousel-nav-button:disabled {
+                background-color: rgba(0, 0, 0, 0.2);
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+        }
+
+        /* Footer Styles */
+        .site-footer {
             background-color: var(--dark-grey);
             color: var(--light-grey);
+            padding: 60px 0;
+            font-size: 0.9rem;
         }
-        
-        footer a {
-            color: var(--light-grey);
+        .site-footer h5 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .site-footer .footer-logo img {
+            max-height: 70px;
+            margin-bottom: 20px;
+        }
+        .site-footer p {
+            color: var(--mid-grey);
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: var(--mid-grey);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        .footer-contact p {
+            margin-bottom: 15px;
+        }
+        .footer-contact a {
+            color: var(--mid-grey);
             text-decoration: none;
             transition: color 0.3s;
         }
-        
-        footer a:hover {
+        .footer-contact a:hover {
+            color: var(--white);
+        }
+        .footer-contact i {
+            color: var(--primary-red);
+            margin-right: 10px;
+        }
+        .footer-social-icons a {
+            color: var(--mid-grey);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        .footer-social-icons a:hover {
             color: var(--primary-red);
         }
-        
-        .social-icons a {
-            font-size: 1.5rem;
-            margin: 0 12px;
+        .footer-bottom-bar {
+            border-top: 1px solid #495057;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: var(--mid-grey);
+        }
+        .footer-bottom-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-bottom-bar a:hover {
+            color: var(--primary-red);
         }
     </style>
 </head>
@@ -370,12 +521,12 @@
                     <div class="topic-text-content active" data-index="0">
                         <span class="topic-number">01</span>
                         <h3>Venture Capital</h3>
-                        <p>We provide early-stage funding and strategic guidance to high-growth startups in technology, AI, healthcare, fintech, and other emerging industries. Our hands-on approach and deep industry insights help founders scale their businesses and achieve sustainable success.</p>
+                        <p>We provide early-stage funding and strategic guidance to high-growth startups in technology, AI, healthcare, fintech, and other emerging industries.</p>
                     </div>
                     <div class="topic-text-content" data-index="1">
                         <span class="topic-number">02</span>
                         <h3>Private Equity</h3>
-                        <p>We invest in established information technology products and services companies with strong growth potential, leveraging our expertise to optimize operations, enhance profitability, cross selling and create lasting value. Our focus spans multiple sectors, including life sciences, pharmaceuticals, Telecom and financial services.</p>
+                        <p>We invest in established information technology products and services companies with strong growth potential, leveraging our expertise to optimize operations.</p>
                     </div>
                     <div class="topic-text-content" data-index="2">
                         <span class="topic-number">03</span>
@@ -385,32 +536,32 @@
                     <div class="topic-text-content" data-index="3">
                         <span class="topic-number">04</span>
                         <h3>Mergers & Acquisitions</h3>
-                        <p>Vimtra's team of entrepreneurs specializes in domestic and cross-border mergers, acquisitions, divestitures, company combinations, and public market takeovers. Going private transactions, special committee representations, and hostile and takeover defense advising services are among our specialties.</p>
+                        <p>Vimtra's team specializes in domestic and cross-border mergers, acquisitions, divestitures, company combinations, and public market takeovers.</p>
                     </div>
                     <div class="topic-text-content" data-index="4">
                         <span class="topic-number">05</span>
                         <h3>Startups</h3>
-                        <p>We invest in startups and serve as full-service incubators for their development. From Seed through Series to Convertible Notes, we participate in all stages of finance.</p>
+                        <p>We invest in startups and serve as full-service incubators for their development. We participate in all stages of finance.</p>
                     </div>
                     <div class="topic-text-content" data-index="5">
                         <span class="topic-number">06</span>
                         <h3>Business Restructuring</h3>
-                        <p>Businesses facing financial challenges turn to us for our disciplined approach to transactions and our swift implementation of innovative financing solutions. We quickly collaborate with management to fully understand the situation and the challenges faced by all parties involved.</p>
+                        <p>Businesses facing financial challenges turn to us for our disciplined approach and innovative financing solutions.</p>
                     </div>
                     <div class="topic-text-content" data-index="6">
                         <span class="topic-number">07</span>
                         <h3>Infrastructure Development</h3>
-                        <p>Vimtra has heavily invested in real estate, with over $450 million worth of projects under active development in high-growth targeted areas spanning golf communities, multifamily apartment complexes, Commercial and retail development. We currently hold a portfolio of 35+ properties in both the United States and India.</p>
+                        <p>Vimtra has heavily invested in real estate, with over $450 million worth of projects under active development in high-growth targeted areas.</p>
                     </div>
                     <div class="topic-text-content" data-index="7">
                         <span class="topic-number">08</span>
-                        <h3>Information Technology Products and Services</h3>
-                        <p>Beyond real estate, Vimtra is a powerhouse in the technology sector. We own and operate over 30+ Information technology companies across the country, driving innovation and transformation across multiple industries. Our diverse holdings range from enterprise software solutions and artificial intelligence to cutting-edge fintech and digital platforms.</p>
+                        <h3>Information Technology</h3>
+                        <p>Vimtra is a powerhouse in the technology sector. We own and operate over 30+ Information technology companies across the country.</p>
                     </div>
                     <div class="topic-text-content" data-index="8">
                         <span class="topic-number">09</span>
-                        <h3>Sports Franchises & Entertainment</h3>
-                        <p>Subash has a strong presence in professional sports and entertainment ventures, with a focus on creating long-term value through strategic partnerships and community engagement. His portfolio includes The Bays - Golf Lab & Suites, the Dallas Sidekicks, and the Arka Grand Golf Resort Community in Chennai.</p>
+                        <h3>Sports & Entertainment</h3>
+                        <p>Subash has a strong presence in professional sports and entertainment ventures, with a focus on creating long-term value.</p>
                     </div>
                 </div>
 
@@ -428,6 +579,11 @@
                             <div class="carousel-cell"><img src="images/Information Technology Products and Services.jpg" alt="Information Technology"></div>
                             <div class="carousel-cell"><img src="images/Sports Franchises & Entertainment.jpg" alt="Sports & Entertainment"></div>
                         </div>
+                    </div>
+                    <!-- NEW Mobile Navigation Buttons -->
+                    <div class="carousel-nav">
+                        <button class="carousel-nav-button" id="prevButton">&larr;</button>
+                        <button class="carousel-nav-button" id="nextButton">&rarr;</button>
                     </div>
                 </div>
             </div>
@@ -450,15 +606,53 @@
 
 
     <!-- Footer -->
-    <footer class="py-5">
-        <div class="container text-center">
-            <h4 class="mb-3">Vimtra Ventures</h4>
-            <div class="social-icons mb-4">
-                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="images/logowhite.png" alt="Vimtra Ventures Logo">
+                    </div>
+                    <p>Vimtra Ventures is a premier advisory firm specializing in high-stakes corporate finance and strategic development across the globe.</p>
+                    <div class="footer-social-icons mt-4">
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="mergers&acquisitions.html">Mergers & Acquisitions</a></li>
+                        <li><a href="privateequity.html">Private Equity</a></li>
+                        <li><a href="infrastructuredevelopment.html">Infrastructure</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <h5>Contact Us</h5>
+                    <div class="footer-contact">
+                        <p><i class="bi bi-geo-alt-fill"></i><a href="https://www.google.com/maps/search/?api=1&query=Vimtra+Ventures" target="_blank">New York, San Francisco, Dallas & India</a></p>
+                        <p><i class="bi bi-telephone-fill"></i><a href="tel:+17326662468">+1 732 666 2468</a></p>
+                        <p><i class="bi bi-envelope-fill"></i><a href="mailto:syammada@vimtra.com">syammada@vimtra.com</a></p>
+                    </div>
+                </div>
+                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <h5>Our Vision</h5>
+                     <p>To be a global leader in investment and development—reshaping industries, redefining urban landscapes, and driving the next wave of technological and economic progress.</p>
+                </div>
             </div>
-            <p class="mb-0">&copy; 2024 Vimtra Ventures. All Rights Reserved.</p>
+            <div class="row footer-bottom-bar">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Vimtra Ventures. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -494,60 +688,67 @@
             const radius = Math.round((460 / 2) / Math.tan(Math.PI / cellCount));
 
             function updateCarousel() {
-                // Rotate the main carousel
                 const angle = theta * selectedIndex * -1;
                 carousel.style.transform = `translateZ(-${radius}px) rotateY(${angle}deg)`;
 
-                // Update text content visibility
                 textContents.forEach((content, i) => {
                     content.classList.toggle('active', i === selectedIndex);
                 });
 
-                // ** NEW LOGIC FOR SCALING AND OPACITY **
-                // This logic applies the scale and opacity directly to the cells.
                 cells.forEach((cell, i) => {
                     const rotationY = i * theta;
                     let transform = `rotateY(${rotationY}deg) translateZ(${radius}px)`;
                     
                     if (i !== selectedIndex) {
-                        transform += ` scale(0.8)`; // Scale down non-active cells
+                        transform += ` scale(0.8)`;
                         cell.style.opacity = '0.6';
                     } else {
-                        transform += ` scale(1)`; // Ensure active cell is full size
+                        transform += ` scale(1)`;
                         cell.style.opacity = '1';
                     }
                     cell.style.transform = transform;
                 });
+
+                // Update mobile button states
+                if (window.innerWidth <= 991.98) {
+                    document.getElementById('prevButton').disabled = selectedIndex === 0;
+                    document.getElementById('nextButton').disabled = selectedIndex === cellCount - 1;
+                }
             }
             
-            // Initial setup of carousel
             updateCarousel();
 
-            // Listen for scroll events on the topics container
-            topicsContainer.addEventListener('wheel', (event) => {
-                if (isScrolling) return;
+            // Desktop scroll logic
+            if (window.innerWidth > 991.98) {
+                topicsContainer.addEventListener('wheel', (event) => {
+                    if (isScrolling) return;
+                    const isScrollingDown = event.deltaY > 0;
+                    if ((isScrollingDown && selectedIndex === cellCount - 1) || (!isScrollingDown && selectedIndex === 0)) return;
+                    event.preventDefault(); 
+                    selectedIndex += isScrollingDown ? 1 : -1;
+                    updateCarousel();
+                    isScrolling = true;
+                    setTimeout(() => { isScrolling = false; }, 10);
+                });
+            } else {
+                // THE FIX IS HERE: Mobile button logic
+                const prevButton = document.getElementById('prevButton');
+                const nextButton = document.getElementById('nextButton');
 
-                const isScrollingDown = event.deltaY > 0;
-                
-                if ((isScrollingDown && selectedIndex === cellCount - 1) || (!isScrollingDown && selectedIndex === 0)) {
-                    return;
-                }
+                prevButton.addEventListener('click', () => {
+                    if (selectedIndex > 0) {
+                        selectedIndex--;
+                        updateCarousel();
+                    }
+                });
 
-                event.preventDefault(); 
-
-                if (isScrollingDown) {
-                    selectedIndex++;
-                } else {
-                    selectedIndex--;
-                }
-                
-                updateCarousel();
-
-                isScrolling = true;
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 10); 
-            });
+                nextButton.addEventListener('click', () => {
+                    if (selectedIndex < cellCount - 1) {
+                        selectedIndex++;
+                        updateCarousel();
+                    }
+                });
+            }
         });
     </script>
 </body>

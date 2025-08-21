@@ -25,6 +25,7 @@
             --mid-grey: #6c757d;
             --light-grey: #f8f9fa;
             --white: #ffffff;
+            --silver: #cdd7d8; /* New Silver Color */
         }
 
         body {
@@ -40,7 +41,7 @@
         }
 
         .navbar-brand img {
-            max-height: 40px;
+            max-height: 60px;
         }
 
         .nav-link {
@@ -50,8 +51,13 @@
             margin: 0 10px;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link.active{
             color: var(--primary-red);
+        }
+        .nav-link:hover{
+            color: var(--primary-red);
+            box-shadow: 0 2px 0 var(--primary-red);
+            transition: box-shadow 0.5s ease-in-out;
         }
         
         .navbar-toggler { border: none; }
@@ -78,24 +84,6 @@
             border-radius: 2px;
         }
 
-        footer {
-            background-color: var(--dark-grey);
-            color: var(--light-grey);
-        }
-        
-        footer a {
-            color: var(--light-grey);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        footer a:hover { color: var(--primary-red); }
-        
-        .social-icons a {
-            font-size: 1.5rem;
-            margin: 0 12px;
-        }
-
         /* Page-Specific Styles */
         .page-hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/teams.jpg') no-repeat center center;
@@ -119,8 +107,11 @@
         }
         
         .team-member-section:nth-child(even) {
-            background-color: var(--light-grey);
+            background-color: var(--silver);
         }
+        /* .team-member-content p:nth-child(even) {
+            color: var(--white);
+        } */
 
         .team-member-img {
             width: 100%;
@@ -153,11 +144,21 @@
             border: 1px solid #dee2e6;
             border-radius: 0.5rem !important;
             margin-bottom: 1rem;
+            /* NEW: Drop shadow and transition */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         .accordion-button {
             font-weight: 600;
             color: var(--dark-grey);
+            display: flex; /* Ensure flex layout for icon alignment */
+            justify-content: space-between; /* Pushes icon to the right */
+            align-items: center;
         }
         
         .accordion-button:not(.collapsed) {
@@ -171,8 +172,24 @@
             border-color: rgba(0,0,0,.125);
         }
         
+        /* Hide default Bootstrap icon */
         .accordion-button::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c00000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            display: none;
+        }
+        
+        /* NEW: Animated Icon */
+        .accordion-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease-in-out;
+            margin-left: 1rem;
+        }
+
+        .accordion-button:hover .accordion-icon {
+            transform: rotate(90deg);
+        }
+
+        .accordion-button:not(.collapsed) .accordion-icon {
+            transform: rotate(135deg);
         }
         
         .accordion-body ul {
@@ -208,6 +225,81 @@
         .fade-in-section.is-visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* NEW FOOTER STYLES */
+        .site-footer {
+            background-color: var(--dark-grey);
+            color: var(--light-grey);
+            padding: 60px 0;
+            font-size: 0.9rem;
+        }
+        .site-footer h5 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .site-footer .footer-logo img {
+            max-height: 70px;
+            margin-bottom: 20px;
+        }
+        .site-footer p {
+            color: var(--mid-grey);
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: var(--mid-grey);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        .footer-contact p {
+            margin-bottom: 15px;
+        }
+        .footer-contact a {
+            color: var(--mid-grey);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-contact a:hover {
+            color: var(--white);
+        }
+        .footer-contact i {
+            color: var(--primary-red);
+            margin-right: 10px;
+        }
+        .footer-social-icons a {
+            color: var(--mid-grey);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        .footer-social-icons a:hover {
+            color: var(--primary-red);
+        }
+        .footer-bottom-bar {
+            border-top: 1px solid #495057;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: var(--mid-grey);
+        }
+        .footer-bottom-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-bottom-bar a:hover {
+            color: var(--primary-red);
         }
     </style>
 </head>
@@ -247,19 +339,20 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5 text-center">
-                    <img src="images/subash.jpg" alt="Subash Yammada" class="team-member-img">
+                    <img src="images/subash-yammada.jpeg" alt="Subash Yammada" class="team-member-img">
                 </div>
                 <div class="col-lg-7 team-member-content">
                     <h2>Subash Yammada</h2>
                     <p class="title">CEO, Vimtra Ventures | Serial Entrepreneur | Investor | Mentor | Philanthropist</p>
                     <hr class="my-4">
-                    <p>Mr. Subramaniyam V. Yammada, widely known as Subash Yammada, is a dynamic serial entrepreneur and the CEO of Vimtra Ventures, a diversified global enterprise. With over 29 years of leadership experience, he has cultivated an expansive portfolio across sports franchises, private equity, venture capital, real estate development, and technology investments.</p>
+                    <p>Mr. Subramaniyam V. Yammada, widely known as Subash Yammada, is a dynamic serial entrepreneur and the CEO of Vimtra Ventures, a diversified global enterprise. With over 29 years of leadership experience, he has cultivated an expansive portfolio across Sports Franchises, Private Equity, Venture Capital, Infrastructure Development, and Technology Investments.</p>
                     
                     <div class="accordion mt-4" id="accordionSubash">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                     Entrepreneurship & Investments
+                                    <i class="bi bi-plus-circle accordion-icon"></i>
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionSubash">
@@ -275,7 +368,8 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Real Estate Development
+                                    Infrastructure Development
+                                    <i class="bi bi-plus-circle accordion-icon"></i>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSubash">
@@ -288,6 +382,7 @@
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     Leadership, Mentorship & Advisory
+                                    <i class="bi bi-plus-circle accordion-icon"></i>
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionSubash">
@@ -306,21 +401,22 @@
     <section class="team-member-section fade-in-section">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-lg-7 order-lg-1 team-member-content">
+                <div class="col-lg-7 order-2 order-lg-1 team-member-content">
                     <h2>Thimmaji Rao Yammada</h2>
                     <p class="title">Managing Director, Vimtra Ventures | Serial Entrepreneur | Mentor | Leader</p>
                     <hr class="my-4">
-                    <p>Rao Yammada is the Managing Director of Vimtra Ventures, bringing over 30 years of leadership in infrastructure, real estate, and industrial development across North America and India.</p>
+                    <p style="color: var(--dark-grey);">Mr. Thimmaji Rao Yammada Venkata, widely known as Rao Yammada, is the Managing Director and Managing Partner of Vimtra Ventures. With over 30 years of expertise in infrastructure, real estate, and industrial development across North America and India, he has been instrumental in shaping Vimtra into a global enterprise. A visionary leader, he has transformed his ideas into a portfolio of thriving organizations, driving consistent and sustainable growth for more than 26 years.</p>
                     <div class="accordion mt-4" id="accordionRao">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingRaoOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRaoOne" aria-expanded="false" aria-controls="collapseRaoOne">
                                     Entrepreneurship & Investments
+                                    <i class="bi bi-plus-circle accordion-icon"></i>
                                 </button>
                             </h2>
                             <div id="collapseRaoOne" class="accordion-collapse collapse" aria-labelledby="headingRaoOne" data-bs-parent="#accordionRao">
                                 <div class="accordion-body">
-                                    He has successfully executed joint ventures and large-scale projects valued from $8 million to $120 million, with expertise spanning asset restructuring and full-cycle real estate development—including commercial, residential, retail, and mixed-use assets. His work encompasses market research, feasibility studies, land premium negotiations, development planning, and joint venture agreements.
+                                    Under his leadership, Rao Yammada continues to drive high-impact ventures in India, including the Arka Grand and The Windgrove projects. His strategic focus on entrepreneurship and investment reflects his commitment to creating sustainable developments and long-term value.
                                 </div>
                             </div>
                         </div>
@@ -328,6 +424,7 @@
                             <h2 class="accordion-header" id="headingRaoTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRaoTwo" aria-expanded="false" aria-controls="collapseRaoTwo">
                                     Leadership, Mentorship & Advisory
+                                    <i class="bi bi-plus-circle accordion-icon"></i>
                                 </button>
                             </h2>
                             <div id="collapseRaoTwo" class="accordion-collapse collapse" aria-labelledby="headingRaoTwo" data-bs-parent="#accordionRao">
@@ -338,8 +435,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 order-lg-2 text-center">
-                    <img src="images/rao.jpg" alt="Thimmaji Rao Yammada" class="team-member-img">
+                <div class="col-lg-5 order-1 order-lg-2 text-center">
+                    <img src="images/thimmaji-roa-yammada.jpg" alt="Thimmaji Rao Yammada" class="team-member-img">
                 </div>
             </div>
         </div>
@@ -350,7 +447,7 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5 text-center">
-                    <img src="images/surya.jpg" alt="Surya Kotha" class="team-member-img">
+                    <img src="images/surya-kotha.jpg" alt="Surya Kotha" class="team-member-img">
                 </div>
                 <div class="col-lg-7 team-member-content">
                     <h2>Surya Kotha</h2>
@@ -363,16 +460,54 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-5">
-        <div class="container text-center">
-            <h4 class="mb-3">Vimtra Ventures</h4>
-            <div class="social-icons mb-4">
-                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+    <!-- UPDATED FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="images/logowhite.png" alt="Vimtra Ventures Logo">
+                    </div>
+                    <p>Vimtra Ventures is a premier advisory firm specializing in high-stakes corporate finance and strategic development across the globe.</p>
+                    <div class="footer-social-icons mt-4">
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="mergers&acquisitions.html">Mergers & Acquisitions</a></li>
+                        <li><a href="privateequity.html">Private Equity</a></li>
+                        <li><a href="infrastructuredevelopment.html">Infrastructure</a></li>
+                        <li><a href="teams.html">Teams</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <h5>Contact Us</h5>
+                    <div class="footer-contact">
+                        <p><i class="bi bi-geo-alt-fill"></i><a href="https://www.google.com/maps/search/?api=1&query=Vimtra+Ventures" target="_blank">New York, San Francisco, Dallas & India</a></p>
+                        <p><i class="bi bi-telephone-fill"></i><a href="tel:+17326662468">+1 732 666 2468</a></p>
+                        <p><i class="bi bi-envelope-fill"></i><a href="mailto:syammada@vimtra.com">syammada@vimtra.com</a></p>
+                    </div>
+                </div>
+                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <h5>Our Vision</h5>
+                     <p>To be a global leader in investment and development—reshaping industries, redefining urban landscapes, and driving the next wave of technological and economic progress.</p>
+                </div>
             </div>
-            <p class="mb-0">&copy; 2024 Vimtra Ventures. All Rights Reserved.</p>
+            <div class="row footer-bottom-bar">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Vimtra Ventures. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
