@@ -163,13 +163,26 @@
             color: var(--white);
             font-weight: 600;
             margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px; /* Space for the line */
+        }
+        /* THE FIX IS HERE: Red accent line for headings */
+        .site-footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px; /* Width of the line */
+            height: 3px; /* Thickness of the line */
+            background-color: var(--primary-red);
+            border-radius: 2px;
         }
         .site-footer .footer-logo img {
             max-height: 70px;
             margin-bottom: 20px;
         }
         .site-footer p {
-            color: var(--mid-grey);
+            color: var(--light-grey);
         }
         .footer-links {
             list-style: none;
@@ -179,16 +192,24 @@
             margin-bottom: 10px;
         }
         .footer-links a {
-            color: var(--mid-grey);
+            color: var(--light-grey);
             text-decoration: none;
             transition: color 0.3s, padding-left 0.3s;
         }
         .footer-links a:hover {
-            color: var(--white);
+            color: var(--primary-red);
             padding-left: 5px;
         }
         .footer-contact p {
             margin-bottom: 15px;
+        }
+        .footer-contact a {
+            color: var(--light-grey);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-contact a:hover {
+            color: var(--primary-red);
         }
         .footer-contact i {
             color: var(--primary-red);
@@ -209,6 +230,14 @@
             margin-top: 40px;
             font-size: 0.8rem;
             color: var(--mid-grey);
+        }
+        .footer-bottom-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-bottom-bar a:hover {
+            color: var(--primary-red);
         }
     </style>
 </head>

@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vimtra Ventures | Home</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Vimtra Ventures | Private Equity, M&A & Strategic Investments</title>
+    <meta name="description" content="Vimtra Ventures is a global advisory firm specializing in high-stakes corporate finance, venture capital, and strategic development. Explore our core competencies.">
+    <meta name="keywords" content="Vimtra Ventures, strategic investments, venture capital, private equity, M&A advisory, infrastructure development, global investment firm">
+
     <link rel="icon" href="images/favicon.png" type="image/png">
     
     <!-- Bootstrap 5 CSS -->
@@ -35,7 +40,51 @@
             color: var(--dark-grey);
             overflow-x: hidden; /* Prevent horizontal scrollbar */
         }
+                /* NEW: Loading Screen Styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.75s ease-out;
+        }
 
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            max-height: 80px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
         .navbar {
             transition: all 0.3s ease-in-out;
             padding: 1rem 0;
@@ -367,9 +416,8 @@
                 height: 100%;
             }
             
-            /* THE FIX IS HERE: Button positioning */
             .carousel-nav {
-                display: block; /* Show container on mobile */
+                display: block;
                 position: absolute;
                 top: 50%;
                 left: 0;
@@ -377,8 +425,8 @@
                 transform: translateY(-50%);
                 display: flex;
                 justify-content: space-between;
-                padding: 0 10px; /* Add some padding from the edges */
-                pointer-events: none; /* Allow clicks to pass through the container */
+                padding: 0 10px;
+                pointer-events: none;
                 z-index: 10;
             }
             .carousel-nav-button {
@@ -391,7 +439,7 @@
                 font-size: 1.8rem;
                 line-height: 1;
                 transition: background-color 0.3s;
-                pointer-events: all; /* Make buttons clickable */
+                pointer-events: all;
             }
             .carousel-nav-button:hover {
                 background-color: var(--primary-red);
@@ -414,13 +462,25 @@
             color: var(--white);
             font-weight: 600;
             margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px; /* Space for the line */
+        }
+        .site-footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px; /* Width of the line */
+            height: 3px; /* Thickness of the line */
+            background-color: var(--primary-red);
+            border-radius: 2px;
         }
         .site-footer .footer-logo img {
             max-height: 70px;
             margin-bottom: 20px;
         }
         .site-footer p {
-            color: var(--mid-grey);
+            color: var(--light-grey);
         }
         .footer-links {
             list-style: none;
@@ -430,24 +490,24 @@
             margin-bottom: 10px;
         }
         .footer-links a {
-            color: var(--mid-grey);
+            color: var(--light-grey);
             text-decoration: none;
             transition: color 0.3s, padding-left 0.3s;
         }
         .footer-links a:hover {
-            color: var(--white);
+            color: var(--primary-red);
             padding-left: 5px;
         }
         .footer-contact p {
             margin-bottom: 15px;
         }
         .footer-contact a {
-            color: var(--mid-grey);
+            color: var(--light-grey);
             text-decoration: none;
             transition: color 0.3s;
         }
         .footer-contact a:hover {
-            color: var(--white);
+            color: var(--primary-red);
         }
         .footer-contact i {
             color: var(--primary-red);
@@ -480,7 +540,11 @@
     </style>
 </head>
 <body>
-
+        <!-- NEW: Loading Screen HTML -->
+    <div id="loading-screen">
+        <img src="images/logo.png" alt="Vimtra Ventures Logo" class="loader-logo">
+        <div class="spinner"></div>
+    </div>
     <!-- Navigation Bar -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
         <div class="container">
@@ -506,7 +570,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
-            <h1 class="display-3">Strategic Investments. Unparalleled Growth.</h1>
+            <h1>Strategic Investments. Unparalleled Growth.</h1>
             <p class="lead">Vimtra Ventures is a premier advisory firm specializing in high-stakes corporate finance and strategic development.</p>
             <a href="#topics" class="btn btn-primary btn-lg">Explore Our Expertise</a>
         </div>
@@ -570,15 +634,15 @@
                 <div class="topics-carousel-column">
                     <div class="scene">
                         <div class="carousel">
-                            <div class="carousel-cell"><img src="images/venture capital.jpeg" alt="Venture Capital"></div>
-                            <div class="carousel-cell"><img src="images/private equity.jpeg" alt="Private Equity"></div>
-                            <div class="carousel-cell"><img src="images/capital placement.jpeg" alt="Capital Placement"></div>
-                            <div class="carousel-cell"><img src="images/mergers & acquisitions.jpeg" alt="Mergers & Acquisitions"></div>
-                            <div class="carousel-cell"><img src="images/startups.jpeg" alt="Startups"></div>
-                            <div class="carousel-cell"><img src="images/Business Restructuring.jpeg" alt="Business Restructuring"></div>
-                            <div class="carousel-cell"><img src="images/Infrastructure development.jpg" alt="Infrastructure Development"></div>
-                            <div class="carousel-cell"><img src="images/Information Technology Products and Services.jpg" alt="Information Technology"></div>
-                            <div class="carousel-cell"><img src="images/Sports Franchises & Entertainment.jpg" alt="Sports & Entertainment"></div>
+                            <div class="carousel-cell"><img src="images/venture capital.jpeg" alt="Venture capital funding for startups"></div>
+                            <div class="carousel-cell"><img src="images/private equity.jpeg" alt="Private equity investment strategy"></div>
+                            <div class="carousel-cell"><img src="images/capital placement.jpeg" alt="Capital placement and financing"></div>
+                            <div class="carousel-cell"><img src="images/mergers & acquisitions.jpeg" alt="Mergers and acquisitions advisory"></div>
+                            <div class="carousel-cell"><img src="images/startups.jpeg" alt="Startup incubation and investment"></div>
+                            <div class="carousel-cell"><img src="images/Business Restructuring.jpeg" alt="Corporate business restructuring"></div>
+                            <div class="carousel-cell"><img src="images/Infrastructure development.jpg" alt="Infrastructure development project"></div>
+                            <div class="carousel-cell"><img src="images/Information Technology Products and Services.jpg" alt="Information technology products and services"></div>
+                            <div class="carousel-cell"><img src="images/Sports Franchises & Entertainment.jpg" alt="Investment in sports and entertainment"></div>
                         </div>
                     </div>
                     <!-- NEW Mobile Navigation Buttons -->
@@ -612,7 +676,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <div class="footer-logo">
-                        <img src="images/logowhite.png" alt="Vimtra Ventures Logo">
+                        <img src="images/logowhite.png" alt="Vimtra Ventures Logo - White">
                     </div>
                     <p>Vimtra Ventures is a premier advisory firm specializing in high-stakes corporate finance and strategic development across the globe.</p>
                     <div class="footer-social-icons mt-4">
@@ -662,6 +726,12 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+             // NEW: Loading Screen Logic
+            const loadingScreen = document.getElementById('loading-screen');
+            window.addEventListener('load', () => {
+                loadingScreen.classList.add('hidden');
+            });
+            
             // Fade-in animation for non-carousel sections
             const fadeSections = document.querySelectorAll('.fade-in-section');
             const fadeObserver = new IntersectionObserver((entries, observer) => {

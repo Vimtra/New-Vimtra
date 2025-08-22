@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vimtra Ventures | Our Team</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Vimtra Ventures Leadership | Meet Our Executive Team</title>
+    <meta name="description" content="Meet the experienced leadership team at Vimtra Ventures. Our executives, including CEO Subash Yammada, drive our global success in private equity, M&A, and strategic investments.">
+    <meta name="keywords" content="Vimtra Ventures, leadership, executive team, Subash Yammada, Rao Yammada, investment advisors, private equity leaders">
+
     <link rel="icon" href="images/favicon.png" type="image/png">
     
     <!-- Bootstrap 5 CSS -->
@@ -109,9 +114,6 @@
         .team-member-section:nth-child(even) {
             background-color: var(--silver);
         }
-        /* .team-member-content p:nth-child(even) {
-            color: var(--white);
-        } */
 
         .team-member-img {
             width: 100%;
@@ -144,7 +146,6 @@
             border: 1px solid #dee2e6;
             border-radius: 0.5rem !important;
             margin-bottom: 1rem;
-            /* NEW: Drop shadow and transition */
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: box-shadow 0.3s ease-in-out;
         }
@@ -156,8 +157,8 @@
         .accordion-button {
             font-weight: 600;
             color: var(--dark-grey);
-            display: flex; /* Ensure flex layout for icon alignment */
-            justify-content: space-between; /* Pushes icon to the right */
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
         
@@ -172,12 +173,10 @@
             border-color: rgba(0,0,0,.125);
         }
         
-        /* Hide default Bootstrap icon */
         .accordion-button::after {
             display: none;
         }
         
-        /* NEW: Animated Icon */
         .accordion-icon {
             font-size: 1.2rem;
             transition: transform 0.3s ease-in-out;
@@ -227,7 +226,7 @@
             transform: translateY(0);
         }
 
-        /* NEW FOOTER STYLES */
+        /* FOOTER STYLES */
         .site-footer {
             background-color: var(--dark-grey);
             color: var(--light-grey);
@@ -238,13 +237,25 @@
             color: var(--white);
             font-weight: 600;
             margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .site-footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-red);
+            border-radius: 2px;
         }
         .site-footer .footer-logo img {
             max-height: 70px;
             margin-bottom: 20px;
         }
         .site-footer p {
-            color: var(--mid-grey);
+            color: var(--light-grey);
         }
         .footer-links {
             list-style: none;
@@ -254,24 +265,24 @@
             margin-bottom: 10px;
         }
         .footer-links a {
-            color: var(--mid-grey);
+            color: var(--light-grey);
             text-decoration: none;
             transition: color 0.3s, padding-left 0.3s;
         }
         .footer-links a:hover {
-            color: var(--white);
+            color: var(--primary-red);
             padding-left: 5px;
         }
         .footer-contact p {
             margin-bottom: 15px;
         }
         .footer-contact a {
-            color: var(--mid-grey);
+            color: var(--light-grey);
             text-decoration: none;
             transition: color 0.3s;
         }
         .footer-contact a:hover {
-            color: var(--white);
+            color: var(--primary-red);
         }
         .footer-contact i {
             color: var(--primary-red);
@@ -330,7 +341,7 @@
     <!-- Hero Section -->
     <section class="page-hero-section">
         <div class="container">
-            <h1 class="display-3">Our Leadership</h1>
+            <h1>Our Leadership</h1>
         </div>
     </section>
     
@@ -339,13 +350,13 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5 text-center">
-                    <img src="images/subash-yammada.jpeg" alt="Subash Yammada" class="team-member-img">
+                    <img src="images/subash-yammada.jpeg" alt="Subash Yammada, CEO of Vimtra Ventures" class="team-member-img">
                 </div>
                 <div class="col-lg-7 team-member-content">
                     <h2>Subash Yammada</h2>
                     <p class="title">CEO, Vimtra Ventures | Serial Entrepreneur | Investor | Mentor | Philanthropist</p>
                     <hr class="my-4">
-                    <p>Mr. Subramaniyam V. Yammada, widely known as Subash Yammada, is a dynamic serial entrepreneur and the CEO of Vimtra Ventures, a diversified global enterprise. With over 29 years of leadership experience, he has cultivated an expansive portfolio across Sports Franchises, Private Equity, Venture Capital, Infrastructure Development, and Technology Investments.</p>
+                    <p>Mr. Subash Yammada, is a dynamic serial entrepreneur and the CEO of Vimtra Ventures, a diversified global enterprise. With over 29 years of leadership experience, Subash has cultivated an expansive portfolio across Sports Franchises, Private Equity, Venture Capital, Real Estate Development, Technology Investments, and Data Center Operations, establishing himself as a global business leader and strategic advisor.</p>
                     
                     <div class="accordion mt-4" id="accordionSubash">
                         <div class="accordion-item">
@@ -391,6 +402,20 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- NEW SECTION FOR SUBASH -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Data Center Ownership & Capabilities
+                                    <i class="bi bi-plus-circle accordion-icon"></i>
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionSubash">
+                                <div class="accordion-body">
+                                    Subash strategically leads Vimtra Ventures’ growth in data center infrastructure to support the increasing demands of AI and cloud computing. He spearheads greenfield and brownfield projects and fosters strategic partnerships with global technology providers to deliver high-performance, sustainable facilities.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -433,10 +458,24 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- NEW SECTION FOR RAO -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingRaoThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRaoThree" aria-expanded="false" aria-controls="collapseRaoThree">
+                                    Data Center Ownership & Capabilities
+                                    <i class="bi bi-plus-circle accordion-icon"></i>
+                                </button>
+                            </h2>
+                            <div id="collapseRaoThree" class="accordion-collapse collapse" aria-labelledby="headingRaoThree" data-bs-parent="#accordionRao">
+                                <div class="accordion-body">
+                                    Alongside Subash, Rao provides the operational expertise for Vimtra's digital ecosystem investments. He has proven experience in managing mission-critical facilities with Tier III and Tier IV standards for uptime and resilience, with capabilities in scalable design, edge data centers, and high-density deployments.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 text-center">
-                    <img src="images/thimmaji-roa-yammada.jpg" alt="Thimmaji Rao Yammada" class="team-member-img">
+                    <img src="images/thimmaji-roa-yammada.jpg" alt="Thimmaji Rao Yammada, Managing Director of Vimtra Ventures" class="team-member-img">
                 </div>
             </div>
         </div>
@@ -447,7 +486,7 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5 text-center">
-                    <img src="images/surya-kotha.jpg" alt="Surya Kotha" class="team-member-img">
+                    <img src="images/surya-kotha.jpg" alt="Surya Kotha, Technology Advisor for Vimtra Ventures" class="team-member-img">
                 </div>
                 <div class="col-lg-7 team-member-content">
                     <h2>Surya Kotha</h2>

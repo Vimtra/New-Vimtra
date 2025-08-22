@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vimtra Ventures | Careers</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Careers at Vimtra Ventures | Join Our Global Team</title>
+    <meta name="description" content="Explore career opportunities at Vimtra Ventures. We're hiring for roles in finance, HR, IT, and project management in the US and India. Apply today to join our innovative team.">
+    <meta name="keywords" content="Vimtra Ventures careers, investment firm jobs, private equity careers, finance jobs, HR jobs, IT recruiter jobs">
+
     <link rel="icon" href="images/favicon.png" type="image/png">
     
     <!-- Bootstrap 5 CSS -->
@@ -193,10 +198,18 @@
             transform: translateY(-2px);
         }
         
-        /* NEW MULTI-STEP MODAL STYLES */
+        /* THE FIX IS HERE: GLASS MORPHISM MODAL STYLES */
+        .modal-dialog {
+            /* This makes sure the backdrop blur works correctly */
+            transform: none;
+        }
         .modal-content {
+            background: rgba(255, 255, 255, 0.267); /* Semi-transparent background */
+            backdrop-filter: blur(20px); /* The blur effect */
+            -webkit-backdrop-filter: blur(20px); /* For Safari compatibility */
+            border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle border */
             border-radius: 15px;
-            overflow: hidden;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
         }
         .modal-header {
             border-bottom: none;
@@ -258,13 +271,25 @@
             color: var(--white);
             font-weight: 600;
             margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px; /* Space for the line */
+        }
+        .site-footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px; /* Width of the line */
+            height: 3px; /* Thickness of the line */
+            background-color: var(--primary-red);
+            border-radius: 2px;
         }
         .site-footer .footer-logo img {
             max-height: 70px;
             margin-bottom: 20px;
         }
         .site-footer p {
-            color: var(--mid-grey);
+            color: var(--light-grey);
         }
         .footer-links {
             list-style: none;
@@ -274,24 +299,24 @@
             margin-bottom: 10px;
         }
         .footer-links a {
-            color: var(--mid-grey);
+            color: var(--light-grey);
             text-decoration: none;
             transition: color 0.3s, padding-left 0.3s;
         }
         .footer-links a:hover {
-            color: var(--white);
+            color: var(--primary-red);
             padding-left: 5px;
         }
         .footer-contact p {
             margin-bottom: 15px;
         }
         .footer-contact a {
-            color: var(--mid-grey);
+            color: var(--light-grey);
             text-decoration: none;
             transition: color 0.3s;
         }
         .footer-contact a:hover {
-            color: var(--white);
+            color: var(--primary-red);
         }
         .footer-contact i {
             color: var(--primary-red);
@@ -378,14 +403,22 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-hr">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-hr" aria-expanded="false" aria-controls="collapse-hr">
-                                    <div>Human Resources<div class="location">Global</div></div>
+                                    <div>Human Resources<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-hr" class="accordion-collapse collapse" aria-labelledby="heading-hr" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>The Human Resources Manager will oversee all aspects of human resources practices and processes. This role is responsible for ensuring the HR department's operations run smoothly and effectively to deliver maximum value to the organization. The ideal candidate will have strong leadership skills, a deep understanding of HR policies, and a passion for fostering a positive workplace culture.</p>
+                                    <h5>Key Responsibilities</h5>
+                                        <ul>
+                                            <li>Develop and implement effective recruitment strategies to attract top talent.</li>
+                                            <li>Manage the full-cycle recruitment process, including job postings, interviewing, and hiring.</li>
+                                            <li>Oversee the onboarding process for new hires, ensuring a smooth transition into the company.</li>
+                                            <li>Conduct salary benchmarking and develop competitive compensation packages.</li>
+                                            <li>Maintain HR records and employee data in compliance with data protection regulations.</li>
+                                            <li>Utilize HR software to streamline processes and improve efficiency.</li>
+                                        </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="Human Resources">Apply Now</button>
                                 </div>
                             </div>
@@ -395,14 +428,22 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-ushr">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ushr" aria-expanded="false" aria-controls="collapse-ushr">
-                                    <div>US HR<div class="location">USA</div></div>
+                                    <div>US HR<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-ushr" class="accordion-collapse collapse" aria-labelledby="heading-ushr" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>We are seeking a highly skilled and experienced US Human Resources Manager to join our team. The successful candidate will be responsible for overseeing HR functions, ensuring compliance with US employment laws, and developing and implementing HR strategies and initiatives aligned with the overall business strategy. This role requires strong leadership skills, excellent communication abilities, and in-depth knowledge of HR practices and regulations.</p>
+                                    <h5>Key Responsibilities</h5>
+                                        <ul>
+                                            <li>Execute the documentation for the On Boarding process of the Consultant, sending the MSA, PO and W9 to the Vendor and receive the signed copies for our record.</li>
+                                            <li>Assist in creating, editing and proofreading correspondence.</li>
+                                            <li>You shall also work on the Pass-thru; you should be able to handle sensitive and confidential information.</li>
+                                            <li>Responsible as a primary point of contact for all the contract related matters.</li>
+                                            <li>Maintain HR records and employee data in compliance with data protection regulations.</li>
+                                            <li>Assist in other legal matters, administrative duties as needed by the senior management team.</li>
+                                        </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="US HR">Apply Now</button>
                                 </div>
                             </div>
@@ -412,14 +453,26 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-inacc">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-inacc" aria-expanded="false" aria-controls="collapse-inacc">
-                                    <div>Indian Accounts<div class="location">India</div></div>
+                                    <div>Indian Accounts<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-inacc" class="accordion-collapse collapse" aria-labelledby="heading-inacc" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>We are looking for a highly skilled and motivated Accounts Executive to join our Finance team. The ideal candidate will be responsible for managing various accounting functions, including maintaining financial records, processing invoices, and utilizing accounting software such as Tally ERP. The role requires strong analytical skills, attention to detail, and the ability to work independently.</p>
+                                    <h5>Key Responsibilities</h5>
+                                        <ul>
+                                            <li>Maintain accurate and up-to-date financial records.</li>
+                                            <li>Prepare and process invoices, receipts, and payments.</li>
+                                            <li>Reconcile bank statements and accounts regularly.</li>
+                                            <li>Manage accounts payable, ensuring timely payment of invoices.</li>
+                                            <li>Handle accounts receivable, ensuring timely collection of dues.</li>
+                                            <li>Assist in the preparation of monthly, quarterly, and annual financial reports.</li>
+                                            <li>Utilize Tally ERP software for all accounting activities.</li>
+                                            <li>Perform regular audits and data integrity checks in Tally ERP.</li>
+                                            <li>Support the month-end and year-end closing processes.</li>
+                                            <li>Provide general support to the Accounts Manager as needed.</li>
+                                        </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="Indian Accounts">Apply Now</button>
                                 </div>
                             </div>
@@ -429,14 +482,22 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-usacc">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-usacc" aria-expanded="false" aria-controls="collapse-usacc">
-                                    <div>US Accounts<div class="location">USA</div></div>
+                                    <div>US Accounts<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-usacc" class="accordion-collapse collapse" aria-labelledby="heading-usacc" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>We are seeking a highly skilled and experienced US Accounts Executive to join our Finance team. The successful candidate will be responsible for managing US payroll processes, utilizing ADP and QuickBooks software, and ensuring compliance with US state taxes. This role requires in-depth knowledge of payroll calculation, tax deductions based on C2C (Corp-to-Corp) and W2 employment arrangements, and a keen eye for detail.</p>
+                                    <h5>Key Responsibilities</h5>
+                                        <ul>
+                                            <li>Manage and process payroll for US employees using ADP.</li>
+                                            <li>Maintain financial records and manage accounting transactions using QuickBooks.</li>
+                                            <li>Handle invoicing, accounts payable, and accounts receivable tasks.</li>
+                                            <li>Ensure compliance with US federal and state tax regulations.</li>
+                                            <li>Generate and analyze financial reports using QuickBooks and other financial tools.</li>
+                                            <li>Experience in handling payroll and tax compliance for C2C and W2 employees.</li>
+                                        </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="US Accounts">Apply Now</button>
                                 </div>
                             </div>
@@ -446,14 +507,22 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-usim">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-usim" aria-expanded="false" aria-controls="collapse-usim">
-                                    <div>US Immigration<div class="location">USA</div></div>
+                                    <div>US Immigration<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-usim" class="accordion-collapse collapse" aria-labelledby="heading-usim" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>We are seeking an experienced and detail-oriented US Immigration Manager to join our Human Resources team. The successful candidate will be responsible for managing and overseeing all aspects of the company's immigration processes and programs. This role requires extensive knowledge of US immigration laws, excellent organizational skills, and the ability to work effectively with employees, legal counsel, and government agencies.</p>
+                                    <h5>Key Responsibilities</h5>
+                                        <ul>
+                                            <li>Develop and implement immigration policies and procedures to ensure compliance with US immigration laws and regulations.</li>
+                                            <li>Track and manage the status of all active immigration cases and ensure timely completion.</li>
+                                            <li>Oversee and manage the company's immigration program, including H-1B, L-1, TN, O-1, PERM, and other visa categories.</li>
+                                            <li>Serve as the primary point of contact for employees regarding immigration matters.</li>
+                                            <li>Ensure compliance with all federal and state immigration laws and regulations.</li>
+                                            <li>Minimum of 5 years of experience in US immigration management or a related role.</li>
+                                        </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="US Immigration">Apply Now</button>
                                 </div>
                             </div>
@@ -463,14 +532,22 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-ussales">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ussales" aria-expanded="false" aria-controls="collapse-ussales">
-                                    <div>US Bench Sales<div class="location">USA</div></div>
+                                    <div>US Bench Sales<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-ussales" class="accordion-collapse collapse" aria-labelledby="heading-ussales" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>We are seeking a highly motivated and experienced US Bench Sales Recruiter to join our team. The successful candidate will be responsible for marketing our bench consultants, ensuring placements, and building relationships with clients and vendors. This role requires a strong understanding of the US IT recruitment process, excellent sales and communication skills, and the ability to work effectively in a fast-paced environment.</p>
+                                    <h5>Key Responsibilities</h5>
+                                        <ul>
+                                            <li>Market our bench consultants to clients and vendors for contract, contract-to-hire, and full-time positions.</li>
+                                            <li>Develop and maintain relationships with prime vendors and clients to secure placement opportunities.</li>
+                                            <li>Utilize various job boards, social media, and networking channels to identify potential opportunities for bench consultants.</li>
+                                            <li>Work closely with recruiters to understand the skill sets and experience of bench consultants.</li>
+                                            <li>Proven track record of successful placements and client relationships.</li>
+                                            <li>Strong sales and negotiation skills with the ability to close deals.</li>
+                                        </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="US Bench Sales">Apply Now</button>
                                 </div>
                             </div>
@@ -480,14 +557,22 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-usit">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-usit" aria-expanded="false" aria-controls="collapse-usit">
-                                    <div>US IT Recruiter<div class="location">USA</div></div>
+                                    <div>US IT Recruiter<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-usit" class="accordion-collapse collapse" aria-labelledby="heading-usit" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>We are seeking a dynamic and experienced US IT Recruiter to join our team. The successful candidate will be responsible for sourcing, attracting, and hiring IT professionals for our clients across the United States. This role requires a deep understanding of the US IT job market, excellent communication skills, and the ability to manage the full recruitment lifecycle efficiently.</p>
+                                    <h5>Key Responsibilities</h5>
+                                    <ul>
+                                        <li>Identify and source IT candidates using various channels including job boards, social media, networking, and direct sourcing.</li>
+                                        <li>Review resumes and credentials for appropriateness of skills, experience, and knowledge in relation to position requirements.</li>
+                                        <li>Present qualified candidates to clients with detailed profiles and recommendations.</li>
+                                        <li>Build and maintain strong relationships with clients to understand their hiring needs and provide timely recruitment solutions.</li>
+                                        <li>Develop and maintain a pipeline of qualified IT professionals.</li>
+                                        <li>Work closely with other recruiters and team members to share knowledge and best practices.</li>
+                                    </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="US IT Recruiter">Apply Now</button>
                                 </div>
                             </div>
@@ -497,14 +582,22 @@
                         <div class="accordion-item" data-aos="fade-up">
                             <h2 class="accordion-header" id="heading-pm">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-pm" aria-expanded="false" aria-controls="collapse-pm">
-                                    <div>Project Management<div class="location">Global</div></div>
+                                    <div>Project Management<div class="location">Chennai, Hyderabad</div></div>
                                 </button>
                             </h2>
                             <div id="collapse-pm" class="accordion-collapse collapse" aria-labelledby="heading-pm" data-bs-parent="#jobListings">
                                 <div class="accordion-body">
-                                    <p><strong>Number of Openings:</strong> 1</p>
-                                    <h5>Job Summary</h5><p>Placeholder text for the job summary.</p>
-                                    <h5>Key Responsibilities</h5><ul><li>Responsibility point one.</li><li>Responsibility point two.</li></ul>
+                                    <p><strong>Number of Openings:</strong> 5</p>
+                                    <h5>Job Summary</h5><p>We are seeking a highly motivated and organized Project Management Trainee to join our team. This entry-level position is designed to provide comprehensive training and hands-on experience in project management. The successful candidate will assist experienced project managers in planning, executing, and closing projects while gaining valuable skills and knowledge in project management methodologies and tools.</p>
+                                    <h5>Key Responsibilities</h5>
+                                    <ul>
+                                        <li>Define business process flow, identify areas of issues/areas of improvement, initiate projects and manage.</li>
+                                        <li>Implement and manage HR & immigration compliance tool for Vimtra Venture group of companies.</li>
+                                        <li>Coordinate with customer support team of compliance tool to resolve issues and improve processes.</li>
+                                        <li>Manage consultants working under different clients with various technical skill sets.</li>
+                                        <li>Evaluate consultants and assist them with their training & immigration needs.</li>
+                                        <li>Manage consultants, assignment of project, project changes, time sheets, terminations and immigration details in the compliance tool.</li>
+                                    </ul>
                                     <button class="btn btn-apply mt-3" data-bs-toggle="modal" data-bs-target="#applyModal" data-job-title="Project Management">Apply Now</button>
                                 </div>
                             </div>
@@ -577,7 +670,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="progress mb-4">
-                        <div class="progress-bar" role="progressbar" style="width: 33.3%;" aria-valuenow="33.3" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div id="application-form-container">
                         <form id="applicationForm">
@@ -587,15 +680,15 @@
                             <div class="form-step active" id="step1">
                                 <h5>Step 1: Your Information</h5>
                                 <div class="mb-3">
-                                    <label for="FullName" class="form-label">Full Name</label>
+                                    <label for="FullName" class="form-label" required>Full Name</label>
                                     <input type="text" class="form-control" id="FullName" name="FullName" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Email" class="form-label">Email Address</label>
+                                    <label for="Email" class="form-label" required>Email Address</label>
                                     <input type="email" class="form-control" id="Email" name="Email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Phone" class="form-label">Phone Number</label>
+                                    <label for="Phone" class="form-label" required>Phone Number</label>
                                     <input type="tel" class="form-control" id="Phone" name="Phone" required>
                                 </div>
                             </div>
@@ -621,7 +714,7 @@
                             <div class="form-step" id="step3">
                                 <h5>Step 3: Upload Documents</h5>
                                 <div class="mb-3">
-                                    <label for="Resume" class="form-label">Upload Resume</label>
+                                    <label for="Resume" class="form-label" required>Upload Resume</label>
                                     <input class="form-control" type="file" id="Resume" name="Resume" required>
                                 </div>
                                 <div class="mb-3">
