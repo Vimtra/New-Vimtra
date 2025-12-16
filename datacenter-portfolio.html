@@ -4,78 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vimtra Ventures | Retail Portfolio</title>
+    <title>Vimtra Ventures | Data Center Infrastructure</title>
+
+    <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Explore Vimtra Ventures' retail portfolio. We invest in innovative brands and consumer experiences, driving growth in the dynamic retail sector.">
+        content="Explore Vimtra Ventures' Data Center Infrastructure portfolio. Ownership, development, and operation of Tier III and Tier IV mission-critical facilities.">
     <meta name="keywords"
-        content="Vimtra Ventures, retail portfolio, consumer brands, retail investments, innovative retail">
-    <link rel="canonical" href="https://vimtra.com/retails-portfolio.html">
-    <meta property="og:title" content="Vimtra Ventures | Retail Portfolio">
+        content="Vimtra Ventures, Data Center, Infrastructure, Tier III, Tier IV, Hyperscale, Cloud, Edge Computing">
+    <link rel="canonical" href="https://vimtra.com/datacenter-portfolio.html">
+    <meta property="og:title" content="Vimtra Ventures | Data Center Infrastructure">
     <meta property="og:description"
-        content="Explore Vimtra Ventures' retail portfolio. We invest in innovative brands and consumer experiences, driving growth in the dynamic retail sector.">
-    <meta property="og:image" content="https://vimtra.com/images/logo.png">
-    <meta property="og:url" content="https://vimtra.com/retails-portfolio.html">
+        content="Ownership, development, and operation of Tier III and Tier IV mission-critical facilities across North America and India.">
+    <meta property="og:image" content="https://vimtra.com/images/infrastructure-development.jpg">
+    <meta property="og:url" content="https://vimtra.com/datacenter-portfolio.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vimtra Ventures | Retail Portfolio">
+    <meta name="twitter:title" content="Vimtra Ventures | Data Center Infrastructure">
     <meta name="twitter:description"
-        content="Explore Vimtra Ventures' retail portfolio. We invest in innovative brands and consumer experiences, driving growth in the dynamic retail sector.">
-    <meta name="twitter:image" content="https://vimtra.com/images/logo.png">
-    <link rel="icon" href="images/favicon.png" type="image/png">
+        content="Ownership, development, and operation of Tier III and Tier IV mission-critical facilities across North America and India.">
+    <meta name="twitter:image" content="https://vimtra.com/images/infrastructure-development.jpg">
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "Vimtra Ventures",
-          "url": "https://vimtra.com",
-          "logo": "https://vimtra.com/images/logo.png",
-          "description": "Vimtra Ventures is a global private equity and venture capital firm specializing in high-stakes corporate finance, mergers & acquisitions, and strategic development.",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "New York, San Francisco, Dallas & India"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1 732 666 2468",
-            "email": "syammada@vimtra.com",
-            "contactType": "customer service"
-          },
-          "sameAs": [
-            "https://www.instagram.com/vimtra_ventures/",
-            "https://www.facebook.com/profile.php/?id=100078611386991",
-            "https://www.linkedin.com/company/vimtra-ventures/"
-          ]
-        },
-        {
-          "@type": "WebPage",
-          "name": "Vimtra Ventures | Retail Portfolio",
-          "description": "Explore Vimtra Ventures' retail portfolio. We invest in innovative brands and consumer experiences, driving growth in the dynamic retail sector.",
-          "url": "https://vimtra.com/retails-portfolio.html",
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://vimtra.com/index.html"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Retail Portfolio",
-                "item": "https://vimtra.com/retails-portfolio.html"
-              }
-            ]
-          }
-        }
-      ]
-    }
-    </script>
+    <link rel="icon" href="images/favicon.png" type="image/png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -416,7 +365,7 @@
         }
 
         .page-hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/retail-portfolio.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/infrastructure-development.jpg') no-repeat center center;
             background-size: cover;
             color: var(--white);
             height: 60vh;
@@ -427,7 +376,7 @@
         }
 
         .page-hero-section h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
@@ -461,6 +410,53 @@
             color: var(--mid-grey);
         }
 
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            background-color: var(--light-grey);
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '•';
+            color: var(--primary-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Project Card Styles */
         .project-card {
             background-size: cover;
             background-position: center;
@@ -472,10 +468,12 @@
             display: flex;
             align-items: flex-end;
             transition: transform 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .project-card:hover {
             transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .project-card::after {
@@ -485,24 +483,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
         }
 
         .project-card-content {
             position: relative;
             z-index: 2;
             padding: 25px;
+            width: 100%;
         }
 
         .project-card-content h4 {
-            font-weight: 600;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.5rem;
         }
 
-        .project-card-content a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
+        .project-card-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            opacity: 0.9;
         }
+
 
         .site-footer {
             background-color: var(--dark-grey);
@@ -621,12 +623,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="mergers&acquisitions.html">Mergers & Acquisitions</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="privateequity.html">Private Equity</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="portfolio.html" id="ourPortfolioDropdown"
+                        <a class="nav-link dropdown-toggle active" href="portfolio.html" id="ourPortfolioDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Our Portfolio
                         </a>
@@ -659,7 +661,7 @@
                                         </div>
                                     </a>
                                     <a href="healthcare-portfolio.html" class="mega-menu-item"
-                                        style="background-image: url('images/clipboard-medical-desk.jpg'); background-size: fit; background-position: center;">
+                                        style="background-image: url('images/clipboard-medical-desk.jpg'); background-size: contain; background-position: center;">
                                         <div class="mega-menu-item-content">
                                             <h5>Healthcare</h5>
                                             <p>Funding advancements in medical technology and healthcare services.</p>
@@ -705,9 +707,10 @@
         </div>
     </nav>
 
-    <section class="page-hero-section">
+    <section class="page-hero-section"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/datacenter-portfolio-new.png');">
         <div class="container" data-aos="fade-up">
-            <h1>Retail Ventures Portfolio</h1>
+            <h1>Data Center Infrastructure</h1>
         </div>
     </section>
 
@@ -715,41 +718,150 @@
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-8" data-aos="fade-up">
-                    <h2 class="section-title">Redefining the Consumer Experience</h2>
-                    <p class="intro-text">Our investments in the retail sector are aimed at empowering innovative
-                        brands, optimizing supply chains, and creating next-generation consumer experiences that thrive
-                        in a dynamic market.</p>
+                    <h2 class="section-title">Ownership, Development, and Operation</h2>
+                    <p class="intro-text">
+                        We specialize in Tier III and Tier IV mission-critical facilities across North America and
+                        India, delivering scalable, resilient, and sustainable solutions for hyperscale, cloud, and
+                        enterprise workloads.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section bg-light pt-0">
+    <!-- Current Operations Section -->
+    <section class="section bg-light">
         <div class="container">
-            <h3 class="section-title" data-aos="fade-up">Featured Retail Projects</h3>
+            <h3 class="section-title" data-aos="fade-up">Current Operations</h3>
+            <div class="row g-4 justify-content-center">
+                <!-- Raleigh, NC -->
+                <div class="col-md-6 col-lg-5" data-aos="zoom-in">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
+                        <div class="project-card-content">
+                            <h4>Raleigh</h4>
+                            <p>North Carolina</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Flowermound, TX -->
+                <div class="col-md-6 col-lg-5" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
+                        <div class="project-card-content">
+                            <h4>Flowermound</h4>
+                            <p>Texas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Developments Section -->
+    <section class="section">
+        <div class="container">
+            <h3 class="section-title" data-aos="fade-up">Future Developments</h3>
+            <p class="text-center mb-5 intro-text" data-aos="fade-up">
+                Developing over 2 million square feet of next-generation data centers, slated for completion by 2029.
+            </p>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4" data-aos="zoom-in">
-                    <div class="project-card" style="background-image: url('images/aha-amoham.jpg');">
+                <!-- Clay, New York -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
                         <div class="project-card-content">
-                            <h4>Aha Amoham</h4>
-                            <a href="#" target="_blank" rel="noopener">Learn More &rarr;</a>
+                            <h4>Clay</h4>
+                            <p>New York</p>
+                            <small class="d-block text-white-50 mt-1">Across from Micron's $100B Facility</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="project-card" style="background-image: url('images/hastagindia.png');">
+
+                <!-- Pataskala, Ohio -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
                         <div class="project-card-content">
-                            <h4>Hashtag India</h4>
-                            <a href="https://www.hashtagindia.com/" target="_blank" rel="noopener">Learn More &rarr;</a>
+                            <h4>Pataskala</h4>
+                            <p>Ohio</p>
+                            <small class="d-block text-white-50 mt-1">Near Intel's New Chip Factory</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="project-card" style="background-image: url('images/drizzles.jpg');">
+
+                <!-- Sherman, TX -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
                         <div class="project-card-content">
-                            <h4>Drizzles Icecream</h4>
-                            <a href="https://drizzlesicecream.com/" target="_blank" rel="noopener">Learn More &rarr;</a>
+                            <h4>Sherman</h4>
+                            <p>Texas</p>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Webster, TX -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
+                        <div class="project-card-content">
+                            <h4>Webster</h4>
+                            <p>Texas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perris, CA -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
+                        <div class="project-card-content">
+                            <h4>Perris</h4>
+                            <p>California</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manhattan, IL -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
+                        <div class="project-card-content">
+                            <h4>Manhattan</h4>
+                            <p>Illinois</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stockley Park, London -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card" style="background-image: url('images/infrastructure-development.jpg');">
+                        <div class="project-card-content">
+                            <h4>Stockley Park</h4>
+                            <p>London, UK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise & Partnerships Section (Preserved but styled consistently) -->
+    <section class="section bg-light">
+        <div class="container">
+            <h3 class="section-title" data-aos="fade-up">Strategic Overview</h3>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-5" data-aos="fade-up">
+                    <div class="feature-card h-100">
+                        <div class="icon"><i class="bi bi-vector-pen"></i></div>
+                        <h4>Expertise</h4>
+                        <p>We possess deep expertise in:</p>
+                        <ul class="feature-list">
+                            <li>Greenfield and Brownfield developments</li>
+                            <li>Edge computing facilities</li>
+                            <li>High-density, high-performance environments</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card h-100">
+                        <div class="icon"><i class="bi bi-people-fill"></i></div>
+                        <h4>Strategic Partnerships</h4>
+                        <p>Partnering with leading cloud providers, hyperscale operators, and technology firms to ensure
+                            energy-efficient, reliable, and future-ready digital infrastructure.</p>
                     </div>
                 </div>
             </div>
